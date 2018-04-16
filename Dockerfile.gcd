@@ -1,0 +1,14 @@
+FROM golang:1.9.1
+
+WORKDIR /go/src/KuberProject/app
+COPY app .
+COPY mcs ../mcs
+
+RUN go get -v ./...
+RUN go install -v ./...
+
+EXPOSE 3001
+
+CMD [ "gcd" ]
+
+
