@@ -2,7 +2,6 @@ package main
 import (
 	"log"
 	"net"
-	// Change this for your own project
 	context "golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -11,8 +10,11 @@ import (
 
 type server struct{}
 
+const port  = ":3001"
+const netConn  = "tcp"
+
 func main() {
-	lis, err := net.Listen("tcp", ":3001")
+	lis, err := net.Listen(netConn, port)
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
 	}

@@ -8,6 +8,7 @@ RUN go get -v ./...
 RUN go install -v ./...
 
 EXPOSE 3001
+
 CMD [ "appgcd" ]
 
 
