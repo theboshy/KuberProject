@@ -11,10 +11,11 @@ Servidor **RPC** en *golang* com arquitectura de *microservicio* con integracion
 
 ### Build Project
 ```sh
-protoc -I ./mcs --go_out=plugins=grpc:./pb ./mcs/*.proto
+$ cd ./[<project_path>]
+$ protoc -I ./mcs --go_out=plugins=grpc:./pb ./mcs/*.proto
 
-eval $(minikube docker-env)
-docker build -t local/gcd -f Dockerfile.gcd .
+$ eval $(minikube docker-env)
+$ docker build -t local/gcd -f Dockerfile.gcd .
 
-kubectl apply -f gcd-deployment.yaml
+$kubectl apply -f gcd-deployment.yaml
 ```
