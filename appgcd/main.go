@@ -6,6 +6,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"KuberProject/mcs"
+	"io/ioutil"
+	"strconv"
 )
 
 type server struct{}
@@ -32,4 +34,17 @@ func (s *server) Compute(ctx context.Context, r *mcs.GCDRequest) (*mcs.GCDRespon
 		a, b = b, a%b
 	}
 	return &mcs.GCDResponse{Result: a}, nil
+}
+
+func (c *server) SaveFile(ctx context.Context, r *mcs.FileRequest) (*mcs. FileResponse, error) {
+	const outputpath ="C:/Users/Software1/Desktop/"
+error := ioutil.WriteFile(outputpath+r.FileName,r.BinaryFile,0644)
+check(error)
+	return &mcs.FileResponse{OutPath: outputpath +r.FileName,Message:"image saved, image size : "+strconv.Itoa(int(r.FileSize))}, nil
+}
+
+func check(e error) {
+	if e != nil {
+		panic(e)
+	}
 }

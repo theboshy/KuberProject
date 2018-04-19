@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package mcs;
 
+//- Compute GCD msg
 message GCDRequest {
     uint64 a = 1;
     uint64 b = 2;
@@ -11,6 +12,21 @@ message GCDResponse {
     uint64 result = 1;
 }
 
+//- File creator msg
+message FileRequest{
+    bytes binaryFile = 1;
+    string fileName = 2;
+    int64 fileSize = 3;
+}
+
+message FileResponse{
+    string outPath = 1;
+    string message = 2;
+}
+
+
+
 service GCDService {
     rpc Compute (GCDRequest) returns (GCDResponse) {}
+    rpc SaveFile (FileRequest) returns (FileResponse) {}
 }
