@@ -12,7 +12,7 @@ Servidor **RPC** en *golang* com arquitectura de *microservicio* con integracion
 ### Build Project
 ```sh
 $ cd ./[<project_path>]
-$ protoc -I ./mcs --go_out=plugins=grpc:./pb ./mcs/*.proto
+$ protoc  ./mcs/rpcserviceproto.proto --go_out=plugins=grpc:./
 
 $ eval $(minikube docker-env)
 $ docker build -t local/gcd -f Dockerfile.gcd .
