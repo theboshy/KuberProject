@@ -25,7 +25,6 @@ message FileResponse{
 }
 
 
-
 service GCDService {
     rpc Compute (GCDRequest) returns (GCDResponse) {}
     rpc SaveFile (FileRequest) returns (FileResponse) {}

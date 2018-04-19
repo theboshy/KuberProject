@@ -2,7 +2,7 @@ package main
 import (
 	"log"
 	"net"
-	context "golang.org/x/net/context"
+	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"KuberProject/mcs"
@@ -42,6 +42,8 @@ error := ioutil.WriteFile(outputpath+r.FileName,r.BinaryFile,0644)
 check(error)
 	return &mcs.FileResponse{OutPath: outputpath +r.FileName,Message:"image saved, image size : "+strconv.Itoa(int(r.FileSize))}, nil
 }
+
+
 
 func check(e error) {
 	if e != nil {
