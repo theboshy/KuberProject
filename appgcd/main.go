@@ -39,7 +39,7 @@ func (s *server) Compute(ctx context.Context, r *mcs.GCDRequest) (*mcs.GCDRespon
 func (c *server) SaveFile(ctx context.Context, r *mcs.FileRequest) (*mcs. FileResponse, error) {
 	const outputpath ="C:/Users/Software1/Desktop/"
 error := ioutil.WriteFile(outputpath+r.FileName,r.BinaryFile,0644)
-check(error)
+check(error)  
 	return &mcs.FileResponse{OutPath: outputpath +r.FileName,Message:"image saved, image size : "+strconv.Itoa(int(r.FileSize))}, nil
 }
 
